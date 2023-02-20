@@ -4,6 +4,9 @@
  */
 package com.plant;
 
+import java.awt.Color;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+
 /**
  *
  * @author amaan
@@ -15,6 +18,9 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);   //jframe to center
+        this.setBackground(new Color(0, 0, 0, 0));       //jframe to transparent background
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
@@ -26,21 +32,366 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        panel_signin = new com.k33ptoo.components.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtpass_in = new javax.swing.JPasswordField();
+        txtuser_in = new javax.swing.JTextField();
+        lbl_signin = new javax.swing.JLabel();
+        lbl_signup = new javax.swing.JLabel();
+        kButton_login = new com.k33ptoo.components.KButton();
+        jLabel_exitsign = new javax.swing.JLabel();
+        panel_signup = new com.k33ptoo.components.KGradientPanel();
+        lbl_signin1 = new javax.swing.JLabel();
+        lbl_signup1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtsecurans_up = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtenpass_up = new javax.swing.JPasswordField();
+        txtrepass_up = new javax.swing.JPasswordField();
+        txtname_up = new javax.swing.JTextField();
+        txtemail_up = new javax.swing.JTextField();
+        txtuser_up = new javax.swing.JTextField();
+        kButton_register = new com.k33ptoo.components.KButton();
+        jLabel8 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(javax.swing.UIManager.getDefaults().getColor("Button.background"));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLayeredPane1.setOpaque(true);
+        jLayeredPane1.setLayout(new java.awt.CardLayout());
+
+        panel_signin.setkBorderRadius(75);
+        panel_signin.setkEndColor(new java.awt.Color(255, 255, 255));
+        panel_signin.setkGradientFocus(250);
+        panel_signin.setkStartColor(new java.awt.Color(0, 255, 51));
+
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel1.setText("Username");
+
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel2.setText("Password");
+
+        txtpass_in.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        txtpass_in.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        txtuser_in.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        txtuser_in.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtuser_in.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        lbl_signin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_signin.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_signin.setText("SignIn");
+        lbl_signin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_signinMousePressed(evt);
+            }
+        });
+
+        lbl_signup.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_signup.setText("SignUp");
+        lbl_signup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_signupMousePressed(evt);
+            }
+        });
+
+        kButton_login.setBorder(null);
+        kButton_login.setText("Log In");
+        kButton_login.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        kButton_login.setkBorderRadius(50);
+        kButton_login.setkEndColor(new java.awt.Color(255, 255, 255));
+        kButton_login.setkHoverForeGround(new java.awt.Color(102, 255, 102));
+        kButton_login.setkHoverStartColor(new java.awt.Color(0, 204, 102));
+        kButton_login.setkPressedColor(new java.awt.Color(0, 153, 51));
+        kButton_login.setkStartColor(new java.awt.Color(0, 204, 255));
+        kButton_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton_loginActionPerformed(evt);
+            }
+        });
+
+        jLabel_exitsign.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel_exitsign.setForeground(new java.awt.Color(255, 0, 102));
+        jLabel_exitsign.setText("X");
+        jLabel_exitsign.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel_exitsignMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_signinLayout = new javax.swing.GroupLayout(panel_signin);
+        panel_signin.setLayout(panel_signinLayout);
+        panel_signinLayout.setHorizontalGroup(
+            panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_signinLayout.createSequentialGroup()
+                .addContainerGap(125, Short.MAX_VALUE)
+                .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(txtuser_in, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(txtpass_in, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_signinLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(kButton_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(122, 122, 122))
+            .addGroup(panel_signinLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lbl_signin)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_signup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_exitsign)
+                .addGap(22, 22, 22))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        panel_signinLayout.setVerticalGroup(
+            panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_signinLayout.createSequentialGroup()
+                .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_signinLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_signup)
+                            .addComponent(lbl_signin)))
+                    .addGroup(panel_signinLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel_exitsign)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtuser_in, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtpass_in, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(kButton_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(165, 165, 165))
         );
+
+        jLayeredPane1.add(panel_signin, "card2");
+
+        panel_signup.setkBorderRadius(75);
+        panel_signup.setkEndColor(new java.awt.Color(255, 255, 255));
+        panel_signup.setkGradientFocus(250);
+        panel_signup.setkStartColor(new java.awt.Color(0, 255, 51));
+
+        lbl_signin1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_signin1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_signin1.setText("SignUp");
+        lbl_signin1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_signin1MousePressed(evt);
+            }
+        });
+
+        lbl_signup1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbl_signup1.setText("SignIn");
+        lbl_signup1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_signup1MousePressed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel3.setText("Enter Name:");
+
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel4.setText("Enter Email:");
+
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel5.setText("Enter Username:");
+
+        jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel16.setText("Security Answer:");
+
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel6.setText("Enter Password:");
+
+        txtsecurans_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
+        txtsecurans_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jLabel7.setText("Re-Enter Password:");
+
+        txtenpass_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
+        txtenpass_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        txtrepass_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
+        txtrepass_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        txtname_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
+        txtname_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        txtemail_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
+        txtemail_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        txtuser_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 20)); // NOI18N
+        txtuser_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        kButton_register.setBorder(null);
+        kButton_register.setText("Register");
+        kButton_register.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        kButton_register.setkBorderRadius(50);
+        kButton_register.setkEndColor(new java.awt.Color(255, 0, 51));
+        kButton_register.setkHoverForeGround(new java.awt.Color(102, 255, 102));
+        kButton_register.setkHoverStartColor(new java.awt.Color(0, 204, 102));
+        kButton_register.setkPressedColor(new java.awt.Color(0, 153, 51));
+        kButton_register.setkStartColor(new java.awt.Color(255, 153, 0));
+        kButton_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton_registerActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 0, 102));
+        jLabel8.setText("X");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel8MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_signupLayout = new javax.swing.GroupLayout(panel_signup);
+        panel_signup.setLayout(panel_signupLayout);
+        panel_signupLayout.setHorizontalGroup(
+            panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_signupLayout.createSequentialGroup()
+                .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_signupLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_signin1)
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3)
+                                    .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtrepass_up, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtenpass_up, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtuser_up, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtname_up, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtemail_up, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(panel_signupLayout.createSequentialGroup()
+                                    .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel16)
+                                        .addComponent(txtsecurans_up, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(1, 1, 1)))
+                            .addGroup(panel_signupLayout.createSequentialGroup()
+                                .addComponent(lbl_signup1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                                .addComponent(jLabel8))))
+                    .addGroup(panel_signupLayout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(kButton_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
+        );
+        panel_signupLayout.setVerticalGroup(
+            panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_signupLayout.createSequentialGroup()
+                .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_signupLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_signup1)
+                            .addComponent(lbl_signin1)))
+                    .addGroup(panel_signupLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtname_up, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtemail_up, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
+                .addComponent(txtuser_up, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtenpass_up, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtrepass_up, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtsecurans_up, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(kButton_register, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(panel_signup, "card2");
+
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void kButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kButton_loginActionPerformed
+
+    private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kButton_registerActionPerformed
+
+    private void lbl_signinMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_signinMousePressed
+        // TODO add your handling code here:
+        panel_signin.setVisible(true);
+        panel_signup.setVisible(false);
+    }//GEN-LAST:event_lbl_signinMousePressed
+
+    private void lbl_signupMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_signupMousePressed
+        // TODO add your handling code here:
+        panel_signin.setVisible(false);
+        panel_signup.setVisible(true);
+    }//GEN-LAST:event_lbl_signupMousePressed
+
+    private void lbl_signin1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_signin1MousePressed
+        // TODO add your handling code here:
+        panel_signin.setVisible(true);
+        panel_signup.setVisible(false);
+    }//GEN-LAST:event_lbl_signin1MousePressed
+
+    private void lbl_signup1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_signup1MousePressed
+        // TODO add your handling code here:
+        panel_signin.setVisible(false);
+        panel_signup.setVisible(true);
+    }//GEN-LAST:event_lbl_signup1MousePressed
+
+    private void jLabel_exitsignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_exitsignMousePressed
+        // TODO add your handling code here:
+        System.exit(0); //for exut jframe
+    }//GEN-LAST:event_jLabel_exitsignMousePressed
+
+    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+        // TODO add your handling code here:
+        System.exit(0); //for exut jframe
+    }//GEN-LAST:event_jLabel8MousePressed
 
     /**
      * @param args the command line arguments
@@ -78,5 +429,32 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel_exitsign;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private com.k33ptoo.components.KButton kButton_login;
+    private com.k33ptoo.components.KButton kButton_register;
+    private javax.swing.JLabel lbl_signin;
+    private javax.swing.JLabel lbl_signin1;
+    private javax.swing.JLabel lbl_signup;
+    private javax.swing.JLabel lbl_signup1;
+    private com.k33ptoo.components.KGradientPanel panel_signin;
+    private com.k33ptoo.components.KGradientPanel panel_signup;
+    private javax.swing.JTextField txtemail_up;
+    private javax.swing.JPasswordField txtenpass_up;
+    private javax.swing.JTextField txtname_up;
+    private javax.swing.JPasswordField txtpass_in;
+    private javax.swing.JPasswordField txtrepass_up;
+    private javax.swing.JTextField txtsecurans_up;
+    private javax.swing.JTextField txtuser_in;
+    private javax.swing.JTextField txtuser_up;
     // End of variables declaration//GEN-END:variables
 }

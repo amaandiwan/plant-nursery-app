@@ -15,6 +15,10 @@ public class PlantNursery {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Login sign = new Login();
+        sign.setVisible(true);
+//        Home home = new Home();
+//        home.setVisible(true);
     }
     
 }
