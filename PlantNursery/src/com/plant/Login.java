@@ -4,8 +4,17 @@
  */
 package com.plant;
 
+import com.controller.DbConfig;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -122,11 +131,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtuser_in.setBackground(new Color(0,0,0,0));
         txtuser_in.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         txtuser_in.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        jPasswordField1.setBackground(new Color (0,0,0,0));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
@@ -158,7 +165,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(kButton_login, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(156, 156, 156))
             .addGroup(panel_signinLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(83, 83, 83)
                 .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -228,19 +235,15 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         jLabel7.setText("Re-Enter Password:");
 
-        txtenpass_up.setBackground(new Color(0,0,0,0));
         txtenpass_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtenpass_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        txtrepass_up.setBackground(new Color(0,0,0,0));
         txtrepass_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtrepass_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        txtemail_up.setBackground(new Color(0,0,0,0));
         txtemail_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtemail_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        txtuser_up.setBackground(new Color(0,0,0,0));
         txtuser_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtuser_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
@@ -262,7 +265,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtemail_up1.setBackground(new Color(0,0,0,0));
         txtemail_up1.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtemail_up1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
@@ -335,7 +337,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemail_up1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(txtemail_up1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -388,6 +390,39 @@ public class Login extends javax.swing.JFrame {
 
     private void kButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_loginActionPerformed
         // TODO add your handling code here:
+        //String user=txtuser_in.getText();
+        //String pwd= new String (jPasswordField1.getPassword());
+        //if (user.equals(“yourusername“) && pwd.equals(“yourpassword“))
+        //new Home().setVisible(true);
+        String username = txtuser_in.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        if (username.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Some Fields Are Empty", "Error", 1);
+        } else {
+
+            try {
+                Connection con = DbConfig.getConnection();
+                //Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/cms","root","root");
+                PreparedStatement smt = con.prepareStatement("select * from userdata where ud_username =? and ud_password =?");
+                smt.setString(1, username);
+                smt.setString(2, password);
+                ResultSet st = smt.executeQuery();
+                if (st.next()) {
+                    JOptionPane.showMessageDialog(null, "You are Successfully logged in");
+                    JFrame frame1 = new Login();
+                    frame1.setVisible(false);
+                    JFrame frame = new Home();
+                    frame.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Login Credentials");
+                }
+                con.close();
+                st.close();
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_kButton_loginActionPerformed
 
     private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
