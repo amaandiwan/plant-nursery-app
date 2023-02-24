@@ -4,8 +4,17 @@
  */
 package com.plant;
 
+import com.controller.DbConfig;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -158,7 +167,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(kButton_login, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(156, 156, 156))
             .addGroup(panel_signinLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(83, 83, 83)
                 .addGroup(panel_signinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -335,7 +344,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemail_up1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(txtemail_up1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -388,6 +397,39 @@ public class Login extends javax.swing.JFrame {
 
     private void kButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_loginActionPerformed
         // TODO add your handling code here:
+        //String user=txtuser_in.getText();
+        //String pwd= new String (jPasswordField1.getPassword());
+        //if (user.equals(“yourusername“) && pwd.equals(“yourpassword“))
+        //new Home().setVisible(true);
+        String username = txtuser_in.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        if (username.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Some Fields Are Empty", "Error", 1);
+        } else {
+
+            try {
+                Connection con = DbConfig.getConnection();
+                //Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/cms","root","root");
+                PreparedStatement smt = con.prepareStatement("select * from userdata where ud_username =? and ud_password =?");
+                smt.setString(1, username);
+                smt.setString(2, password);
+                ResultSet st = smt.executeQuery();
+                if (st.next()) {
+                    JOptionPane.showMessageDialog(null, "You are Successfully logged in");
+                    JFrame frame1 = new Login();
+                    frame1.setVisible(false);
+                    JFrame frame = new Home();
+                    frame.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Login Credentials");
+                }
+                con.close();
+                st.close();
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_kButton_loginActionPerformed
 
     private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
