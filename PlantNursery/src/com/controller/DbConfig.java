@@ -19,15 +19,15 @@ public class DbConfig {
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         try {
-            String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-            String url = "jdbc:derby://localhost:1527/flower=true";
-            //srng dbname = "root";
+            String driver = "org.apache.derby.jdbc.ClientDriver";
+            String url = "jdbc:derby://localhost:1527/";
+            String dbname = "plant_db";
             String user = "root";
             String pass = "root";
 
             Class.forName(driver);
             Connection con = (Connection) DriverManager.getConnection(
-                    url , user, pass);
+                    url + dbname, user, pass);
             return con;
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
