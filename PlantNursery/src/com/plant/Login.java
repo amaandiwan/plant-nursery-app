@@ -122,11 +122,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtuser_in.setBackground(new Color(0,0,0,0));
         txtuser_in.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         txtuser_in.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        jPasswordField1.setBackground(new Color (0,0,0,0));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
@@ -228,19 +226,15 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         jLabel7.setText("Re-Enter Password:");
 
-        txtenpass_up.setBackground(new Color(0,0,0,0));
         txtenpass_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtenpass_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        txtrepass_up.setBackground(new Color(0,0,0,0));
         txtrepass_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtrepass_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        txtemail_up.setBackground(new Color(0,0,0,0));
         txtemail_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtemail_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
-        txtuser_up.setBackground(new Color(0,0,0,0));
         txtuser_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtuser_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
@@ -262,7 +256,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtemail_up1.setBackground(new Color(0,0,0,0));
         txtemail_up1.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtemail_up1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
