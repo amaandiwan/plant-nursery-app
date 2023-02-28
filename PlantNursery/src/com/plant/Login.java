@@ -6,12 +6,14 @@ package com.plant;
 
 import com.controller.DbConfig;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
@@ -65,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         txtemail_up = new javax.swing.JTextField();
         txtuser_up = new javax.swing.JTextField();
         kButton_register = new com.k33ptoo.components.KButton();
-        txtemail_up1 = new javax.swing.JTextField();
+        txtname_up = new javax.swing.JTextField();
         jLabel_minup = new javax.swing.JLabel();
         jLabel_exitsignup = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -265,8 +267,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtemail_up1.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
-        txtemail_up1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        txtname_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
+        txtname_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel_minup.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
         jLabel_minup.setForeground(new java.awt.Color(0, 204, 0));
@@ -305,7 +307,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(txtemail_up1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtname_up, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtemail_up, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -337,7 +339,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemail_up1)
+                .addComponent(txtname_up)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -396,6 +398,8 @@ public class Login extends javax.swing.JFrame {
         //new Home().setVisible(true);
         String username = txtuser_in.getText();
         String password = String.valueOf(jPasswordField1.getPassword());
+        txtuser_up.setText(username);
+        txtenpass_up.setText(password);
         if (username.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Some Fields Are Empty", "Error", 1);
         } else {
@@ -425,10 +429,58 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_kButton_loginActionPerformed
 
-    private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton_registerActionPerformed
+    public static boolean isEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
 
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
+    }
+
+    
+    private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
+            
+        // TODO add your handling code here:
+        String name = txtname_up.getText();
+        String email = txtemail_up.getText();
+        String username = txtuser_up.getText();
+        String pass1 = String.valueOf(txtenpass_up.getPassword());
+        String pass2 = String.valueOf(txtrepass_up.getPassword());
+        
+            if (isEmail(email) && pass1.equals(pass2) && !pass1.isEmpty() && !pass2.isEmpty() && !username.isEmpty() && !name.isEmpty()) {
+                try {
+                    Connection con = DbConfig.getConnection();
+                    PreparedStatement smt = (PreparedStatement) con.prepareStatement("insert into userdata(ud_name,ud_email,ud_username,ud_password)values(?,?,?,?)");
+                    smt.setString(1, name);
+                    smt.setString(2, email);
+                    smt.setString(3, username);
+                    smt.setString(4, pass1);
+                    int res = smt.executeUpdate();
+                    if (res != 0) {
+                        JOptionPane.showMessageDialog(null, "You are registered successfully");
+                                panel_signin.setVisible(true);
+                                panel_signup.setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Something went wrong");
+                    }
+                    con.close();
+                    smt.close();
+                } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            } 
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "Please fill all the details correctly");
+            }
+                                             
+    }//GEN-LAST:event_kButton_registerActionPerformed
+        
     private void lbl_signupMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_signupMousePressed
         // TODO add your handling code here:
         panel_signin.setVisible(false);
@@ -523,8 +575,8 @@ public class Login extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel panel_signin;
     private com.k33ptoo.components.KGradientPanel panel_signup;
     private javax.swing.JTextField txtemail_up;
-    private javax.swing.JTextField txtemail_up1;
     private javax.swing.JPasswordField txtenpass_up;
+    private javax.swing.JTextField txtname_up;
     private javax.swing.JPasswordField txtrepass_up;
     private javax.swing.JTextField txtuser_in;
     private javax.swing.JTextField txtuser_up;
