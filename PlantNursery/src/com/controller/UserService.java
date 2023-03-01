@@ -10,5 +10,5 @@ import com.plant.Login;
  *
  * @author amaan
  */
-public class UserService extends Login{
+public class UserService{
 }
