@@ -497,6 +497,11 @@ public class Home extends javax.swing.JFrame {
 
         kbtnAddOp.setText("Add");
         kbtnAddOp.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnAddOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kbtnAddOpActionPerformed(evt);
+            }
+        });
 
         kbtnUpdateOp.setText("Update");
         kbtnUpdateOp.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -563,14 +568,12 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel7))
-                    .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel6)
+                    .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(23, 23, 23)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -963,8 +966,8 @@ public class Home extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "There was a mistake" + e.getMessage(), " Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }else{
-            JOptionPane.showMessageDialog(this, "No data to export "," Error message",JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "No data to export ", " Error message", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_kbtnExportExcelActionPerformed
 
@@ -997,6 +1000,46 @@ public class Home extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jRadioInvoice_RpActionPerformed
+
+    void addPlant() {
+        try {
+            String pid = txtid_op.getText();
+            String pname = txtname_op.getText();
+            String pquant = txtquantity_op.getText();
+            String pamnt = txtamount_op.getText();
+            String pdesc = txtdesc_op.getText();
+            String pseason = txtseason_op.getText();
+            if (!pid.isEmpty() && !pname.isEmpty() && !pquant.isEmpty() && !pamnt.isEmpty() && !pdesc.isEmpty() && !pseason.isEmpty()) {
+                try {
+                    Connection con = DbConfig.getConnection();
+                    PreparedStatement ps = (PreparedStatement) con.prepareStatement("insert into plants values(?,?,?,?,?,?)");
+                    ps.setString(1, pid);
+                    ps.setString(2, pname);
+                    ps.setString(3, pquant);
+                    ps.setString(4, pamnt);
+                    ps.setString(5, pdesc);
+                    ps.setString(6, pseason);
+                    int result = ps.executeUpdate();
+                    if (result != 0) {
+                        JOptionPane.showMessageDialog(null, "You are Successfully logged in");
+                    }
+                    ps.close();
+                    viewPlantTable();
+                    con.close();
+                } catch (HeadlessException | ClassNotFoundException | SQLException ex) {
+                    Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Some Fields are Empty");
+            }
+        } catch (HeadlessException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void kbtnAddOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnAddOpActionPerformed
+        // TODO add your handling code here:
+        addPlant();
+    }//GEN-LAST:event_kbtnAddOpActionPerformed
 
     /**
      * @param args the command line arguments
