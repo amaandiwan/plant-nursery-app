@@ -848,10 +848,9 @@ public class Home extends javax.swing.JFrame {
             String tamount = txtamount_op.getText();
             String tdesc = txtdesc_op.getText();
             String tseason = txtseason_op.getText();
-
-            String sql = "update PLANTS set P_ID=" + t_id + ", P_sNAME=" + tname + ", P_QUANTITY=" + tquantity + ", P_AMOUNT=" + tamount + ", P_DESC=" + tdesc + ", P_GROWING_SEASON=" + tseason + " where P_ID=" + t_id;
-
-            if (!t_id.isEmpty())//&& !tname.isEmpty() && !tquantity.isEmpty() && !tamount.isEmpty() && !tdesc.isEmpty() && !tseason.isEmpty()) {
+            String sql = "update PLANTS set P_ID=?, P_NAME=?, P_QUANTITY=?, P_AMOUNT=?, P_DESC=?, P_GROWING_SEASON=? "
+                    + "Where P_ID=" + t_id;
+            if (!t_id.isEmpty() && !tname.isEmpty() && !tquantity.isEmpty() && !tamount.isEmpty() && !tdesc.isEmpty() && !tseason.isEmpty())
             {
                 try {
                     Connection con = DbConfig.getConnection();
@@ -870,18 +869,18 @@ public class Home extends javax.swing.JFrame {
 
                     } else {
                         JOptionPane.showMessageDialog(null, "Updation Unsuccessfull");
+                        viewPlantTable();
                     }
                 } catch (HeadlessException | ClassNotFoundException | SQLException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-            } else {
+            }else {
                 JOptionPane.showMessageDialog(null, "Some Field is Empty");
             }
         } catch (HeadlessException ex) {
             JOptionPane.showMessageDialog(null, "Please try Again" + ex);
         }
     }
-
     private void kbtnUpdateOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnUpdateOpActionPerformed
         // TODO add your handling code here:
         updatePlantOp();
