@@ -1023,7 +1023,7 @@ public class Home extends javax.swing.JFrame {
         clearPlantDataOp();
     }//GEN-LAST:event_kbtnClearOpActionPerformed
 
-    private void kbtnAddtoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnAddtoCartActionPerformed
+    void addToCart(){
         makePanelVisible(kBillingPanel);
         TableModel pl_model = jTablePlant.getModel();
         int index[] = jTablePlant.getSelectedRows();
@@ -1038,6 +1038,10 @@ public class Home extends javax.swing.JFrame {
             row[5] = pl_model.getValueAt(index[i], 5);
         }
         bill_model.addRow(row);
+    }
+    
+    private void kbtnAddtoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnAddtoCartActionPerformed
+        addToCart();
     }//GEN-LAST:event_kbtnAddtoCartActionPerformed
 
     private void jLabel_mininMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_mininMousePressed
@@ -1045,8 +1049,7 @@ public class Home extends javax.swing.JFrame {
         this.setState(ICONIFIED);       //for minimize jframe
     }//GEN-LAST:event_jLabel_mininMousePressed
 
-    private void kbtnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnExportExcelActionPerformed
-        // TODO add your handling code here:
+    void exportToExcel(){
         if (jTableReport.getRowCount() > 0) {
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Microsoft Excel 97-2003 Worksheet (.xls)", "xls");
@@ -1071,6 +1074,10 @@ public class Home extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No data to export ", " Error message", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    private void kbtnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnExportExcelActionPerformed
+        // TODO add your handling code here:
+        exportToExcel();
     }//GEN-LAST:event_kbtnExportExcelActionPerformed
 
     private void jRadioPlant_RpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioPlant_RpActionPerformed
@@ -1153,7 +1160,7 @@ public class Home extends javax.swing.JFrame {
         clr_model.setRowCount(0);
     }//GEN-LAST:event_kbtnbillingClearActionPerformed
 
-    private void kbtnbillingpaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingpaymentActionPerformed
+    void makePayment(){
         try {
             DefaultTableModel payment_model = (DefaultTableModel) jTableBill.getModel();
             int index[] = jTableBill.getSelectedRows();
@@ -1191,6 +1198,8 @@ public class Home extends javax.swing.JFrame {
                                 int selected_row = jTableBill.getSelectedRow();
                                 payment_model.removeRow(selected_row);
                             }
+                            con.close();
+                            viewPlantTable();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Entered quantity is not in stock range .");
@@ -1203,7 +1212,11 @@ public class Home extends javax.swing.JFrame {
             }
         } catch (HeadlessException | ClassNotFoundException | NumberFormatException | SQLException e) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, e);
-        }      
+        }
+    }
+    
+    private void kbtnbillingpaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingpaymentActionPerformed
+       makePayment();
     }//GEN-LAST:event_kbtnbillingpaymentActionPerformed
 
     private void kbtnbillingdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingdeleteActionPerformed
