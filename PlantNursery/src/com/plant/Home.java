@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -89,7 +90,6 @@ public class Home extends javax.swing.JFrame {
         kbtnUpdatePlant = new com.k33ptoo.components.KButton();
         kbtnDeletePlant = new com.k33ptoo.components.KButton();
         kbtnRefreshTable = new com.k33ptoo.components.KButton();
-        kbtnClearTable = new com.k33ptoo.components.KButton();
         kbtnAddtoCart = new com.k33ptoo.components.KButton();
         jLabel1 = new javax.swing.JLabel();
         kOperationPanel = new com.k33ptoo.components.KGradientPanel();
@@ -113,7 +113,7 @@ public class Home extends javax.swing.JFrame {
         kBillingPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tableatbillingpanel = new javax.swing.JTable();
+        jTableBill = new javax.swing.JTable();
         kbtnbillingReceipt = new com.k33ptoo.components.KButton();
         kbtnbillingClear = new com.k33ptoo.components.KButton();
         kbtnbillingpayment = new com.k33ptoo.components.KButton();
@@ -391,21 +391,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        kbtnClearTable.setText("Clear");
-        kbtnClearTable.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        kbtnClearTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kbtnClearTableActionPerformed(evt);
-            }
-        });
-
         kbtnAddtoCart.setText("Add to Cart");
         kbtnAddtoCart.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        kbtnAddtoCart.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kbtnAddtoCartMouseClicked(evt);
-            }
-        });
         kbtnAddtoCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnAddtoCartActionPerformed(evt);
@@ -425,11 +412,6 @@ public class Home extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kPlantPanelLayout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(kbtnClearTable, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(172, 172, 172)
-                        .addComponent(kbtnAddtoCart, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kPlantPanelLayout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(kbtnAddPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,8 +429,13 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 66, Short.MAX_VALUE))
             .addGroup(kPlantPanelLayout.createSequentialGroup()
-                .addGap(408, 408, 408)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kPlantPanelLayout.createSequentialGroup()
+                        .addGap(408, 408, 408)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kPlantPanelLayout.createSequentialGroup()
+                        .addGap(446, 446, 446)
+                        .addComponent(kbtnAddtoCart, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kPlantPanelLayout.setVerticalGroup(
@@ -469,11 +456,9 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(Search_Label))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kbtnClearTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kbtnAddtoCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
+                .addGap(26, 26, 26)
+                .addComponent(kbtnAddtoCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(37, 37, 37))
         );
 
         jLayeredCenter.add(kPlantPanel, "card2");
@@ -620,7 +605,7 @@ public class Home extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel15.setText("Billing Page");
 
-        tableatbillingpanel.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -636,7 +621,7 @@ public class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tableatbillingpanel);
+        jScrollPane3.setViewportView(jTableBill);
 
         kbtnbillingReceipt.setText("Receipt");
         kbtnbillingReceipt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -662,8 +647,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        totalamounttext.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        totalamounttext.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         totalamounttext.setText("Total Amount:");
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
         kbtnbillingdelete.setText("Delete");
         kbtnbillingdelete.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -678,31 +665,30 @@ public class Home extends javax.swing.JFrame {
         kBillingPanelLayout.setHorizontalGroup(
             kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kBillingPanelLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kBillingPanelLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(513, 513, 513))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kBillingPanelLayout.createSequentialGroup()
                         .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kBillingPanelLayout.createSequentialGroup()
                                 .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(kbtnbillingClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(kbtnbillingdelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(kBillingPanelLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(totalamounttext)
+                                        .addGap(486, 486, 486)
+                                        .addComponent(totalamounttext, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8))
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(kBillingPanelLayout.createSequentialGroup()
-                                        .addGap(225, 225, 225)
-                                        .addComponent(kbtnbillingpayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-                                        .addComponent(kbtnbillingReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(62, 62, 62))))
+                                        .addGap(240, 240, 240)
+                                        .addComponent(kbtnbillingReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(kbtnbillingpayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50))))
         );
         kBillingPanelLayout.setVerticalGroup(
             kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -714,11 +700,13 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kBillingPanelLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(totalamounttext)
+                        .addGap(16, 16, 16)
+                        .addGroup(kBillingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kBillingPanelLayout.createSequentialGroup()
+                                .addComponent(totalamounttext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(1, 1, 1))
                             .addComponent(jTextField1))
-                        .addGap(49, 49, 49))
+                        .addGap(219, 219, 219))
                     .addGroup(kBillingPanelLayout.createSequentialGroup()
                         .addComponent(kbtnbillingdelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
@@ -726,7 +714,7 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(kbtnbillingClear, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(kbtnbillingpayment, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(kbtnbillingReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(54, Short.MAX_VALUE))))
+                        .addContainerGap(133, Short.MAX_VALUE))))
         );
 
         jLayeredCenter.add(kBillingPanel, "card4");
@@ -957,8 +945,7 @@ public class Home extends javax.swing.JFrame {
             String tseason = txtseason_op.getText();
             String sql = "update PLANTS set P_ID=?, P_NAME=?, P_QUANTITY=?, P_AMOUNT=?, P_DESC=?, P_GROWING_SEASON=? "
                     + "Where P_ID=" + t_id;
-            if (!t_id.isEmpty() && !tname.isEmpty() && !tquantity.isEmpty() && !tamount.isEmpty() && !tdesc.isEmpty() && !tseason.isEmpty())
-            {
+            if (!t_id.isEmpty() && !tname.isEmpty() && !tquantity.isEmpty() && !tamount.isEmpty() && !tdesc.isEmpty() && !tseason.isEmpty()) {
                 try {
                     Connection con = DbConfig.getConnection();
                     PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
@@ -981,7 +968,7 @@ public class Home extends javax.swing.JFrame {
                 } catch (HeadlessException | ClassNotFoundException | SQLException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Some Field is Empty");
             }
         } catch (HeadlessException ex) {
@@ -1036,45 +1023,21 @@ public class Home extends javax.swing.JFrame {
         clearPlantDataOp();
     }//GEN-LAST:event_kbtnClearOpActionPerformed
 
-    private void kbtnClearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnClearTableActionPerformed
-        // TODefaultTableModel mysql_table = (DefaultTableModel)bill_table.getModel();
-              DefaultTableModel mysql_table = (DefaultTableModel)jTablePlant.getModel();
-               mysql_table.setRowCount(0);
-    }//GEN-LAST:event_kbtnClearTableActionPerformed
-      //Add to cart 
-     void addtoCart() {
-        try {
-            makePanelVisible(kBillingPanel);
-            int row = jTablePlant.getSelectedRow();
-            String pid = (jTablePlant.getModel().getValueAt(row, 0)).toString();
-            String sql = "select * from plants where p_id=" + pid;
-            try {
-                Connection con = DbConfig.getConnection();
-                PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    txtid_op.setText(rs.getString("p_id"));
-                    txtname_op.setText(rs.getString("p_name"));
-                    txtquantity_op.setText(rs.getString("p_quantity"));
-                    txtamount_op.setText(rs.getString("p_amount"));
-                    txtdesc_op.setText(rs.getString("p_desc"));
-                    txtseason_op.setText(rs.getString("p_growing_season"));
-                }
-                rs.close();
-                ps.close();
-                con.close();
-            } catch (ClassNotFoundException | SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        } catch (HeadlessException e) {
-            JOptionPane.showMessageDialog(null, "You need to select table row to Add to cart");
-            kBillingPanel.setVisible(false);
-            kPlantPanel.setVisible(true);
-            System.out.println(e);
-        }
-    }
     private void kbtnAddtoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnAddtoCartActionPerformed
-     addtoCart();
+        makePanelVisible(kBillingPanel);
+        TableModel pl_model = jTablePlant.getModel();
+        int index[] = jTablePlant.getSelectedRows();
+        Object[] row = new Object[6];
+        DefaultTableModel bill_model = (DefaultTableModel) jTableBill.getModel();
+        for (int i = 0; i < index.length; i++) {
+            row[0] = pl_model.getValueAt(index[i], 0);
+            row[1] = pl_model.getValueAt(index[i], 1);
+            row[2] = pl_model.getValueAt(index[i], 2);
+            row[3] = pl_model.getValueAt(index[i], 3);
+            row[4] = pl_model.getValueAt(index[i], 4);
+            row[5] = pl_model.getValueAt(index[i], 5);
+        }
+        bill_model.addRow(row);
     }//GEN-LAST:event_kbtnAddtoCartActionPerformed
 
     private void jLabel_mininMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_mininMousePressed
@@ -1186,19 +1149,75 @@ public class Home extends javax.swing.JFrame {
 
     private void kbtnbillingClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingClearActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel clr_model = (DefaultTableModel) jTableBill.getModel();
+        clr_model.setRowCount(0);
     }//GEN-LAST:event_kbtnbillingClearActionPerformed
 
     private void kbtnbillingpaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingpaymentActionPerformed
-        // TODO add your handling code here:
+        try {
+            DefaultTableModel model1 = (DefaultTableModel) jTableBill.getModel();
+            int index[] = jTableBill.getSelectedRows();
+            Object[] row = new Object[7];
+            for (int i = 0; i < index.length; i++) {
+                row[0] = model1.getValueAt(index[i], 0);
+                row[1] = model1.getValueAt(index[i], 1);
+                row[2] = model1.getValueAt(index[i], 2);
+                row[3] = model1.getValueAt(index[i], 3);
+                row[4] = model1.getValueAt(index[i], 4);
+                row[5] = model1.getValueAt(index[i], 5);
+                row[6] = model1.getValueAt(index[i], 6);
+            }
+            if (row[6] != null) {
+                Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/jc", "root", "root");
+
+                PreparedStatement stm2 = (PreparedStatement) con.prepareStatement("select * from medicine where name=?");
+                stm2.setString(1, row[1].toString());
+                ResultSet rst2 = stm2.executeQuery();
+                if (rst2.next()) {
+                    int re_qnty = Integer.parseInt((String) row[6]);
+                    if (rst2.getInt("quantity") >= re_qnty) {
+
+                        PreparedStatement stm = (PreparedStatement) con.prepareStatement("update medicine set quantity=quantity - ? where name=?");
+                        stm.setInt(1, Integer.parseInt((String) row[6]));
+                        stm.setString(2, row[1].toString());
+                        int rs = stm.executeUpdate();
+                        if (rs != 0) {
+                            PreparedStatement stm1 = (PreparedStatement) con.prepareStatement("select * from medicine where name=?");
+                            stm1.setString(1, row[1].toString());
+                            ResultSet rst1 = stm1.executeQuery();
+                            if (rst1.next()) {
+                                int rem = rst1.getInt("quantity");
+                                int price = rst1.getInt("price");
+                                JOptionPane.showMessageDialog(null, "You Ordered " + row[6].toString() + ".\n Now Remaining " + rem + " \n Total Amount :" + (price * re_qnty) + "");
+                                JOptionPane.showMessageDialog(null, "have patience \n your medicine will be delivered soon!");
+                                int selected_row = jTableBill.getSelectedRow();
+                                model1.removeRow(selected_row);
+                            }
+
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Entered quantity is not in stock range .");
+                        int selected_row = jTableBill.getSelectedRow();
+                        model1.removeRow(selected_row);
+                    }
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Please Enter quantity you want to Make the Bill .");
+            }
+
+            //System.exit(0);
+        } catch (Exception e) {
+
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_kbtnbillingpaymentActionPerformed
 
     private void kbtnbillingdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingdeleteActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel rm_model = (DefaultTableModel) jTableBill.getModel();
+        int selected_row = jTableBill.getSelectedRow();
+        rm_model.removeRow(selected_row);
     }//GEN-LAST:event_kbtnbillingdeleteActionPerformed
-
-    private void kbtnAddtoCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kbtnAddtoCartMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kbtnAddtoCartMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1247,6 +1266,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTableBill;
     private javax.swing.JTable jTablePlant;
     private javax.swing.JTable jTableReport;
     private javax.swing.JTextField jTextField1;
@@ -1265,7 +1285,6 @@ public class Home extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kbtnAddPlant;
     private com.k33ptoo.components.KButton kbtnAddtoCart;
     private com.k33ptoo.components.KButton kbtnClearOp;
-    private com.k33ptoo.components.KButton kbtnClearTable;
     private com.k33ptoo.components.KButton kbtnDeletePlant;
     private com.k33ptoo.components.KButton kbtnExportExcel;
     private com.k33ptoo.components.KButton kbtnRefreshTable;
@@ -1275,7 +1294,6 @@ public class Home extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kbtnbillingReceipt;
     private com.k33ptoo.components.KButton kbtnbillingdelete;
     private com.k33ptoo.components.KButton kbtnbillingpayment;
-    private javax.swing.JTable tableatbillingpanel;
     private javax.swing.JLabel totalamounttext;
     private javax.swing.JTextField txtSearchPlant;
     private javax.swing.JTextField txtamount_op;
