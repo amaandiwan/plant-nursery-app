@@ -1155,61 +1155,55 @@ public class Home extends javax.swing.JFrame {
 
     private void kbtnbillingpaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingpaymentActionPerformed
         try {
-            DefaultTableModel model1 = (DefaultTableModel) jTableBill.getModel();
+            DefaultTableModel payment_model = (DefaultTableModel) jTableBill.getModel();
             int index[] = jTableBill.getSelectedRows();
             Object[] row = new Object[7];
             for (int i = 0; i < index.length; i++) {
-                row[0] = model1.getValueAt(index[i], 0);
-                row[1] = model1.getValueAt(index[i], 1);
-                row[2] = model1.getValueAt(index[i], 2);
-                row[3] = model1.getValueAt(index[i], 3);
-                row[4] = model1.getValueAt(index[i], 4);
-                row[5] = model1.getValueAt(index[i], 5);
-                row[6] = model1.getValueAt(index[i], 6);
+                row[0] = payment_model.getValueAt(index[i], 0);
+                row[1] = payment_model.getValueAt(index[i], 1);
+                row[2] = payment_model.getValueAt(index[i], 2);
+                row[3] = payment_model.getValueAt(index[i], 3);
+                row[4] = payment_model.getValueAt(index[i], 4);
+                row[5] = payment_model.getValueAt(index[i], 5);
+                row[6] = payment_model.getValueAt(index[i], 6);
             }
             if (row[6] != null) {
-                Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/jc", "root", "root");
-
-                PreparedStatement stm2 = (PreparedStatement) con.prepareStatement("select * from medicine where name=?");
-                stm2.setString(1, row[1].toString());
-                ResultSet rst2 = stm2.executeQuery();
-                if (rst2.next()) {
+                Connection con = DbConfig.getConnection();
+                PreparedStatement ps1 = (PreparedStatement) con.prepareStatement("select * from plants where p_name = ?");
+                ps1.setString(1, row[1].toString());
+                ResultSet rst1 = ps1.executeQuery();
+                if (rst1.next()) {
                     int re_qnty = Integer.parseInt((String) row[6]);
-                    if (rst2.getInt("quantity") >= re_qnty) {
-
-                        PreparedStatement stm = (PreparedStatement) con.prepareStatement("update medicine set quantity=quantity - ? where name=?");
-                        stm.setInt(1, Integer.parseInt((String) row[6]));
-                        stm.setString(2, row[1].toString());
-                        int rs = stm.executeUpdate();
-                        if (rs != 0) {
-                            PreparedStatement stm1 = (PreparedStatement) con.prepareStatement("select * from medicine where name=?");
-                            stm1.setString(1, row[1].toString());
-                            ResultSet rst1 = stm1.executeQuery();
-                            if (rst1.next()) {
-                                int rem = rst1.getInt("quantity");
-                                int price = rst1.getInt("price");
-                                JOptionPane.showMessageDialog(null, "You Ordered " + row[6].toString() + ".\n Now Remaining " + rem + " \n Total Amount :" + (price * re_qnty) + "");
-                                JOptionPane.showMessageDialog(null, "have patience \n your medicine will be delivered soon!");
+                    if (rst1.getInt("p_quantity") >= re_qnty) {
+                        PreparedStatement ps2 = (PreparedStatement) con.prepareStatement("update plants set p_quantity=p_quantity - ? where p_name=?");
+                        ps2.setInt(1, Integer.parseInt((String) row[6]));
+                        ps2.setString(2, row[1].toString());
+                        int rst2 = ps2.executeUpdate();
+                        if (rst2 != 0) {
+                            PreparedStatement ps3 = (PreparedStatement) con.prepareStatement("select * from plants where p_name=?");
+                            ps3.setString(1, row[1].toString());
+                            ResultSet rst3 = ps3.executeQuery();
+                            if (rst3.next()) {
+                                int remain = rst3.getInt("p_quantity");
+                                int amount = rst3.getInt("p_amount");
+                                JOptionPane.showMessageDialog(null, "Your Ordered Quantity: " + row[6].toString() + ".\n Now Remaining Quantity: " + remain + " \n Total Amount :" + (amount * re_qnty) + "");
+                                JOptionPane.showMessageDialog(null, "Order Sucessfull!!!");
                                 int selected_row = jTableBill.getSelectedRow();
-                                model1.removeRow(selected_row);
+                                payment_model.removeRow(selected_row);
                             }
-
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Entered quantity is not in stock range .");
                         int selected_row = jTableBill.getSelectedRow();
-                        model1.removeRow(selected_row);
+                        payment_model.removeRow(selected_row);
                     }
                 }
-
             } else {
                 JOptionPane.showMessageDialog(null, "Please Enter quantity you want to Make the Bill .");
             }
-
-            //System.exit(0);
-        } catch (Exception e) {
-
-        }        // TODO add your handling code here:
+        } catch (HeadlessException | ClassNotFoundException | NumberFormatException | SQLException e) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, e);
+        }      
     }//GEN-LAST:event_kbtnbillingpaymentActionPerformed
 
     private void kbtnbillingdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnbillingdeleteActionPerformed
