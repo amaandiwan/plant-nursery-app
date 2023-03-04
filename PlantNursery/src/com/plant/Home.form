@@ -827,7 +827,7 @@
                                               <EmptySpace min="-2" pref="486" max="-2" attributes="0"/>
                                               <Component id="totalamounttext" min="-2" pref="182" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jTextField1" min="-2" pref="206" max="-2" attributes="0"/>
+                                              <Component id="jtxtTotalAmnt" min="-2" pref="206" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
@@ -861,7 +861,7 @@
                                       <Component id="totalamounttext" max="32767" attributes="0"/>
                                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                  <Component id="jtxtTotalAmnt" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
                           </Group>
@@ -952,6 +952,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -987,6 +990,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kbtnbillingpaymentActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="totalamounttext">
               <Properties>
@@ -996,7 +1002,7 @@
                 <Property name="text" type="java.lang.String" value="Total Amount:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jtxtTotalAmnt">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
