@@ -577,7 +577,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtenpass_up;
     private javax.swing.JTextField txtname_up;
     private javax.swing.JPasswordField txtrepass_up;
-    private javax.swing.JTextField txtuser_in;
+    public javax.swing.JTextField txtuser_in;
     private javax.swing.JTextField txtuser_up;
     // End of variables declaration//GEN-END:variables
 }
