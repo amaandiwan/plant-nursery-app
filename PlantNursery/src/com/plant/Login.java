@@ -390,12 +390,7 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void kButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_loginActionPerformed
-        // TODO add your handling code here:
-        //String user=txtuser_in.getText();
-        //String pwd= new String (jPasswordField1.getPassword());
-        //if (user.equals(“yourusername“) && pwd.equals(“yourpassword“))
-        //new Home().setVisible(true);
+    void loginUser() {
         String username = txtuser_in.getText();
         String password = String.valueOf(jPasswordField1.getPassword());
         txtuser_up.setText(username);
@@ -427,6 +422,11 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    private void kButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_loginActionPerformed
+        // TODO add your handling code here:
+        loginUser();
     }//GEN-LAST:event_kButton_loginActionPerformed
 
     public static boolean isEmail(String email) {
@@ -442,45 +442,44 @@ public class Login extends javax.swing.JFrame {
         return pat.matcher(email).matches();
     }
 
-    
-    private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
-            
-        // TODO add your handling code here:
+    void registerUser() {
         String name = txtname_up.getText();
         String email = txtemail_up.getText();
         String username = txtuser_up.getText();
         String pass1 = String.valueOf(txtenpass_up.getPassword());
         String pass2 = String.valueOf(txtrepass_up.getPassword());
-        
-            if (isEmail(email) && pass1.equals(pass2) && !pass1.isEmpty() && !pass2.isEmpty() && !username.isEmpty() && !name.isEmpty()) {
-                try {
-                    Connection con = DbConfig.getConnection();
-                    PreparedStatement smt = (PreparedStatement) con.prepareStatement("insert into userdata(ud_name,ud_email,ud_username,ud_password)values(?,?,?,?)");
-                    smt.setString(1, name);
-                    smt.setString(2, email);
-                    smt.setString(3, username);
-                    smt.setString(4, pass1);
-                    int res = smt.executeUpdate();
-                    if (res != 0) {
-                        JOptionPane.showMessageDialog(null, "You are registered successfully");
-                                panel_signin.setVisible(true);
-                                panel_signup.setVisible(false);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Something went wrong");
-                    }
-                    con.close();
-                    smt.close();
-                } catch (HeadlessException | ClassNotFoundException | SQLException e) {
-                    JOptionPane.showMessageDialog(null, e);
+
+        if (isEmail(email) && pass1.equals(pass2) && !pass1.isEmpty() && !pass2.isEmpty() && !username.isEmpty() && !name.isEmpty()) {
+            try {
+                Connection con = DbConfig.getConnection();
+                PreparedStatement smt = (PreparedStatement) con.prepareStatement("insert into userdata(ud_name,ud_email,ud_username,ud_password)values(?,?,?,?)");
+                smt.setString(1, name);
+                smt.setString(2, email);
+                smt.setString(3, username);
+                smt.setString(4, pass1);
+                int res = smt.executeUpdate();
+                if (res != 0) {
+                    JOptionPane.showMessageDialog(null, "You are registered successfully");
+                    panel_signin.setVisible(true);
+                    panel_signup.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Something went wrong");
                 }
-            } 
-            else 
-            {
-                JOptionPane.showMessageDialog(null, "Please fill all the details correctly");
+                con.close();
+                smt.close();
+            } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
             }
-                                             
+        } else {
+            JOptionPane.showMessageDialog(null, "Please fill all the details correctly");
+        }
+    }
+
+    private void kButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton_registerActionPerformed
+        // TODO add your handling code here:
+        registerUser();
     }//GEN-LAST:event_kButton_registerActionPerformed
-        
+
     private void lbl_signupMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_signupMousePressed
         // TODO add your handling code here:
         panel_signin.setVisible(false);
@@ -565,7 +564,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_minin;
     private javax.swing.JLabel jLabel_minup;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPasswordField jPasswordField1;
+    public javax.swing.JPasswordField jPasswordField1;
     private com.k33ptoo.components.KButton kButton_login;
     private com.k33ptoo.components.KButton kButton_register;
     private javax.swing.JLabel lbl_signin;
