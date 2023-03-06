@@ -809,32 +809,33 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace pref="79" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel15" min="-2" pref="147" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="513" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="kbtnbillingClear" max="32767" attributes="0"/>
-                                          <Component id="kbtnbillingdelete" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="486" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="492" max="-2" attributes="0"/>
                                               <Component id="totalamounttext" min="-2" pref="182" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jtxtTotalAmnt" min="-2" pref="206" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
-                                              <Component id="kbtnbillingReceipt" min="-2" max="-2" attributes="0"/>
+                                              <Component id="kbtnbillingdelete" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="kbtnbillingpayment" min="-2" max="-2" attributes="0"/>
+                                              <Component id="kbtnbillingClear" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                              <Component id="kbtnbillingpayment" min="-2" pref="194" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                                           </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jtxtTotalAmnt" pref="206" max="32767" attributes="0"/>
+                                          <Component id="kbtnbillingReceipt" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jScrollPane3" min="-2" pref="1015" max="-2" attributes="0"/>
@@ -852,26 +853,22 @@
                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="375" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="totalamounttext" max="32767" attributes="0"/>
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jtxtTotalAmnt" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jtxtTotalAmnt" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="totalamounttext" alignment="3" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="kbtnbillingdelete" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="kbtnbillingClear" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                                   <Component id="kbtnbillingpayment" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                                   <Component id="kbtnbillingReceipt" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="kbtnbillingdelete" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -960,7 +957,7 @@
             </Container>
             <Component class="com.k33ptoo.components.KButton" name="kbtnbillingReceipt">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Receipt"/>
+                <Property name="text" type="java.lang.String" value="Calculate"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
@@ -982,7 +979,7 @@
             </Component>
             <Component class="com.k33ptoo.components.KButton" name="kbtnbillingpayment">
               <Properties>
-                <Property name="text" type="java.lang.String" value="payment"/>
+                <Property name="text" type="java.lang.String" value="Make Payment"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
@@ -1089,7 +1086,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Plants Invoice"/>
+                <Property name="text" type="java.lang.String" value="Invoice Table"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioInvoice_RpActionPerformed"/>
@@ -1103,7 +1100,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Plants Report"/>
+                <Property name="text" type="java.lang.String" value="Plants Table"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioPlant_RpActionPerformed"/>
