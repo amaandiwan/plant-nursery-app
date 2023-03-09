@@ -56,6 +56,7 @@ public class Home extends javax.swing.JFrame {
     void makePanelVisible(JPanel panel) {
         kPlantPanel.setVisible(false);
         kOperationPanel.setVisible(false);
+        kReportPanel.setVisible(false);
         panel.setVisible(true);
         panel.validate();
     }
@@ -91,10 +92,12 @@ public class Home extends javax.swing.JFrame {
         kGradientPanel4 = new com.k33ptoo.components.KGradientPanel();
         jLabel14 = new javax.swing.JLabel();
         lp4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jLayeredCenter = new javax.swing.JLayeredPane();
         kPlantPanel = new com.k33ptoo.components.KGradientPanel();
         Search_Label = new javax.swing.JLabel();
-        txtSearchPlant = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePlant = new javax.swing.JTable();
         kbtnAddPlant = new com.k33ptoo.components.KButton();
@@ -102,6 +105,7 @@ public class Home extends javax.swing.JFrame {
         kbtnDeletePlant = new com.k33ptoo.components.KButton();
         kbtnRefreshTable = new com.k33ptoo.components.KButton();
         jLabel1 = new javax.swing.JLabel();
+        txtfilterSearchPlant = new javax.swing.JTextField();
         kOperationPanel = new com.k33ptoo.components.KGradientPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -109,23 +113,23 @@ public class Home extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtid_op = new javax.swing.JTextField();
-        txtname_op = new javax.swing.JTextField();
-        txtquantity_op = new javax.swing.JTextField();
-        txtamount_op = new javax.swing.JTextField();
-        txtseason_op = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtdesc_op = new javax.swing.JTextArea();
         kbtnAddOp = new com.k33ptoo.components.KButton();
         kbtnUpdateOp = new com.k33ptoo.components.KButton();
         kbtnClearOp = new com.k33ptoo.components.KButton();
         jLabel4 = new javax.swing.JLabel();
+        txtid_op = new javax.swing.JTextField();
+        txtname_op = new javax.swing.JTextField();
+        txtquantity_op = new javax.swing.JTextField();
+        txtamount_op = new javax.swing.JTextField();
+        txtseason_op = new javax.swing.JTextField();
         kReportPanel = new com.k33ptoo.components.KGradientPanel();
-        jRadioPlant_Rp = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
+        kbtnRefreshReport = new com.k33ptoo.components.KButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableReport = new javax.swing.JTable();
-        kbtnExportExcel = new com.k33ptoo.components.KButton();
+        kbtnUpdateOp1 = new com.k33ptoo.components.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -159,7 +163,7 @@ public class Home extends javax.swing.JFrame {
         kTopPanelLayout.setHorizontalGroup(
             kTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kTopPanelLayout.createSequentialGroup()
-                .addContainerGap(648, Short.MAX_VALUE)
+                .addContainerGap(778, Short.MAX_VALUE)
                 .addComponent(jLabelTitle)
                 .addGap(421, 421, 421)
                 .addComponent(jLabel_minin)
@@ -330,6 +334,16 @@ public class Home extends javax.swing.JFrame {
             .addComponent(lp4, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
         );
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel3.setText("Plant a Tree,");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel13.setText("Save the Planet!");
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/plantImage.png"))); // NOI18N
+
         javax.swing.GroupLayout kLeftPanelLayout = new javax.swing.GroupLayout(kLeftPanel);
         kLeftPanel.setLayout(kLeftPanelLayout);
         kLeftPanelLayout.setHorizontalGroup(
@@ -338,7 +352,20 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(kLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(kGradientPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kGradientPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(kLeftPanelLayout.createSequentialGroup()
+                        .addGroup(kLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(kLeftPanelLayout.createSequentialGroup()
+                                    .addGap(39, 39, 39)
+                                    .addComponent(jLabel3))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kLeftPanelLayout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel13)))
+                            .addGroup(kLeftPanelLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel15)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         kLeftPanelLayout.setVerticalGroup(
@@ -346,11 +373,17 @@ public class Home extends javax.swing.JFrame {
             .addGroup(kLeftPanelLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(30, 30, 30)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(32, 32, 32)
                 .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
+                .addGap(88, 88, 88))
         );
 
         getContentPane().add(kLeftPanel, java.awt.BorderLayout.LINE_START);
@@ -360,13 +393,8 @@ public class Home extends javax.swing.JFrame {
         kPlantPanel.setkEndColor(new java.awt.Color(255, 255, 255));
         kPlantPanel.setkStartColor(new java.awt.Color(204, 255, 255));
 
+        Search_Label.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Search_Label.setText("Search by Id or Name :");
-
-        txtSearchPlant.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSearchPlantKeyPressed(evt);
-            }
-        });
 
         jTablePlant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -388,6 +416,12 @@ public class Home extends javax.swing.JFrame {
 
         kbtnAddPlant.setText("Add Plant");
         kbtnAddPlant.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnAddPlant.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        kbtnAddPlant.setkHoverEndColor(new java.awt.Color(0, 204, 255));
+        kbtnAddPlant.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnAddPlant.setkHoverStartColor(new java.awt.Color(204, 204, 255));
+        kbtnAddPlant.setkSelectedColor(new java.awt.Color(0, 153, 0));
+        kbtnAddPlant.setkStartColor(new java.awt.Color(0, 204, 255));
         kbtnAddPlant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnAddPlantActionPerformed(evt);
@@ -396,6 +430,12 @@ public class Home extends javax.swing.JFrame {
 
         kbtnUpdatePlant.setText("Update Plant");
         kbtnUpdatePlant.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnUpdatePlant.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        kbtnUpdatePlant.setkHoverEndColor(new java.awt.Color(0, 204, 255));
+        kbtnUpdatePlant.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnUpdatePlant.setkHoverStartColor(new java.awt.Color(204, 204, 255));
+        kbtnUpdatePlant.setkSelectedColor(new java.awt.Color(0, 153, 0));
+        kbtnUpdatePlant.setkStartColor(new java.awt.Color(0, 204, 255));
         kbtnUpdatePlant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnUpdatePlantActionPerformed(evt);
@@ -404,6 +444,12 @@ public class Home extends javax.swing.JFrame {
 
         kbtnDeletePlant.setText("Delete Plant");
         kbtnDeletePlant.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnDeletePlant.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        kbtnDeletePlant.setkHoverEndColor(new java.awt.Color(0, 204, 255));
+        kbtnDeletePlant.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnDeletePlant.setkHoverStartColor(new java.awt.Color(204, 204, 255));
+        kbtnDeletePlant.setkSelectedColor(new java.awt.Color(0, 153, 0));
+        kbtnDeletePlant.setkStartColor(new java.awt.Color(0, 204, 255));
         kbtnDeletePlant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnDeletePlantActionPerformed(evt);
@@ -412,65 +458,75 @@ public class Home extends javax.swing.JFrame {
 
         kbtnRefreshTable.setText("Refresh Table");
         kbtnRefreshTable.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnRefreshTable.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        kbtnRefreshTable.setkHoverEndColor(new java.awt.Color(0, 204, 255));
+        kbtnRefreshTable.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnRefreshTable.setkHoverStartColor(new java.awt.Color(204, 204, 255));
+        kbtnRefreshTable.setkSelectedColor(new java.awt.Color(0, 153, 0));
+        kbtnRefreshTable.setkStartColor(new java.awt.Color(0, 204, 255));
         kbtnRefreshTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnRefreshTableActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel1.setText("Search Plant Page");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        jLabel1.setText("Search Plant Page(Search Plant & Delete Plant)");
+
+        txtfilterSearchPlant.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        txtfilterSearchPlant.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        txtfilterSearchPlant.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtfilterSearchPlantKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kPlantPanelLayout = new javax.swing.GroupLayout(kPlantPanel);
         kPlantPanel.setLayout(kPlantPanelLayout);
         kPlantPanelLayout.setHorizontalGroup(
             kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kPlantPanelLayout.createSequentialGroup()
-                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kPlantPanelLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kPlantPanelLayout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kbtnAddPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Search_Label))
-                        .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(56, 56, 56)
+                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(kPlantPanelLayout.createSequentialGroup()
+                            .addGap(211, 211, 211)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kPlantPanelLayout.createSequentialGroup()
+                        .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(kPlantPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kPlantPanelLayout.createSequentialGroup()
-                                .addGap(143, 143, 143)
+                                .addComponent(kbtnAddPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(156, 156, 156)
                                 .addComponent(kbtnUpdatePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 153, Short.MAX_VALUE))
-            .addGroup(kPlantPanelLayout.createSequentialGroup()
-                .addGap(408, 408, 408)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(165, 165, 165)
+                                .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kPlantPanelLayout.createSequentialGroup()
+                                .addComponent(Search_Label)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtfilterSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         kPlantPanelLayout.setVerticalGroup(
             kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kPlantPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(49, 49, 49)
+                .addGap(40, 40, 40)
                 .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kbtnAddPlant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kbtnUpdatePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(Search_Label))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+                    .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfilterSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search_Label)
+                    .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
 
         jLayeredCenter.add(kPlantPanel, "card2");
@@ -498,11 +554,17 @@ public class Home extends javax.swing.JFrame {
         jLabel10.setText("Season :");
 
         txtdesc_op.setColumns(20);
+        txtdesc_op.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtdesc_op.setRows(5);
         jScrollPane2.setViewportView(txtdesc_op);
 
         kbtnAddOp.setText("Add");
         kbtnAddOp.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnAddOp.setkEndColor(new java.awt.Color(204, 204, 255));
+        kbtnAddOp.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnAddOp.setkHoverStartColor(new java.awt.Color(204, 255, 204));
+        kbtnAddOp.setkSelectedColor(new java.awt.Color(0, 204, 0));
+        kbtnAddOp.setkStartColor(new java.awt.Color(102, 204, 255));
         kbtnAddOp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnAddOpActionPerformed(evt);
@@ -511,6 +573,13 @@ public class Home extends javax.swing.JFrame {
 
         kbtnUpdateOp.setText("Update");
         kbtnUpdateOp.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnUpdateOp.setkEndColor(new java.awt.Color(204, 204, 255));
+        kbtnUpdateOp.setkHoverEndColor(new java.awt.Color(0, 204, 0));
+        kbtnUpdateOp.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnUpdateOp.setkHoverStartColor(new java.awt.Color(102, 255, 0));
+        kbtnUpdateOp.setkPressedColor(new java.awt.Color(0, 204, 204));
+        kbtnUpdateOp.setkSelectedColor(new java.awt.Color(51, 255, 0));
+        kbtnUpdateOp.setkStartColor(new java.awt.Color(102, 204, 255));
         kbtnUpdateOp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnUpdateOpActionPerformed(evt);
@@ -519,88 +588,111 @@ public class Home extends javax.swing.JFrame {
 
         kbtnClearOp.setText("Clear");
         kbtnClearOp.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnClearOp.setkEndColor(new java.awt.Color(204, 204, 255));
+        kbtnClearOp.setkHoverEndColor(new java.awt.Color(0, 204, 0));
+        kbtnClearOp.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnClearOp.setkHoverStartColor(new java.awt.Color(102, 255, 0));
+        kbtnClearOp.setkPressedColor(new java.awt.Color(0, 204, 204));
+        kbtnClearOp.setkSelectedColor(new java.awt.Color(51, 255, 0));
+        kbtnClearOp.setkStartColor(new java.awt.Color(102, 204, 255));
         kbtnClearOp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kbtnClearOpActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 32)); // NOI18N
         jLabel4.setText("Plant Operations (Add & Update Plant Data)");
+
+        txtid_op.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        txtid_op.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+
+        txtname_op.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        txtname_op.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+
+        txtquantity_op.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        txtquantity_op.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+
+        txtamount_op.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        txtamount_op.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+
+        txtseason_op.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        txtseason_op.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout kOperationPanelLayout = new javax.swing.GroupLayout(kOperationPanel);
         kOperationPanel.setLayout(kOperationPanelLayout);
         kOperationPanelLayout.setHorizontalGroup(
             kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kOperationPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(kOperationPanelLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addComponent(kbtnAddOp, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106)
-                        .addComponent(kbtnUpdateOp, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(kbtnClearOp, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(310, 310, 310)
+                        .addComponent(jLabel4))
                     .addGroup(kOperationPanelLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
                         .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel8)))
                         .addGap(18, 18, 18)
                         .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtamount_op, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtseason_op, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(493, Short.MAX_VALUE))
+                            .addGroup(kOperationPanelLayout.createSequentialGroup()
+                                .addComponent(kbtnAddOp, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(106, 106, 106)
+                                .addComponent(kbtnUpdateOp, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(93, 93, 93)
+                                .addComponent(kbtnClearOp, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kOperationPanelLayout.createSequentialGroup()
+                                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtamount_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtseason_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(58, 58, 58)
+                                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         kOperationPanelLayout.setVerticalGroup(
             kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kOperationPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel4)
-                .addGap(79, 79, 79)
+                .addGap(60, 60, 60)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(23, 23, 23)
-                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(txtamount_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(38, 38, 38)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel9))
-                    .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(txtseason_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
+                        .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtamount_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtseason_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kbtnAddOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kbtnUpdateOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kbtnClearOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(155, 155, 155))
+                .addGap(156, 156, 156))
         );
 
         jLayeredCenter.add(kOperationPanel, "card5");
@@ -608,17 +700,21 @@ public class Home extends javax.swing.JFrame {
         kReportPanel.setkEndColor(new java.awt.Color(255, 255, 255));
         kReportPanel.setkStartColor(new java.awt.Color(204, 255, 255));
 
-        jbtnGrpReport.add(jRadioPlant_Rp);
-        jRadioPlant_Rp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jRadioPlant_Rp.setText("Plants Table");
-        jRadioPlant_Rp.addActionListener(new java.awt.event.ActionListener() {
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel16.setText("Report Page");
+
+        kbtnRefreshReport.setText("Refresh Report");
+        kbtnRefreshReport.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnRefreshReport.setkEndColor(new java.awt.Color(204, 204, 255));
+        kbtnRefreshReport.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnRefreshReport.setkHoverStartColor(new java.awt.Color(204, 255, 204));
+        kbtnRefreshReport.setkSelectedColor(new java.awt.Color(0, 204, 0));
+        kbtnRefreshReport.setkStartColor(new java.awt.Color(102, 204, 255));
+        kbtnRefreshReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioPlant_RpActionPerformed(evt);
+                kbtnRefreshReportActionPerformed(evt);
             }
         });
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel16.setText("Report Page");
 
         jTableReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -638,11 +734,18 @@ public class Home extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTableReport);
 
-        kbtnExportExcel.setText("Export to Excel");
-        kbtnExportExcel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        kbtnExportExcel.addActionListener(new java.awt.event.ActionListener() {
+        kbtnUpdateOp1.setText("Export to Excel");
+        kbtnUpdateOp1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        kbtnUpdateOp1.setkEndColor(new java.awt.Color(204, 204, 255));
+        kbtnUpdateOp1.setkHoverEndColor(new java.awt.Color(0, 204, 0));
+        kbtnUpdateOp1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kbtnUpdateOp1.setkHoverStartColor(new java.awt.Color(102, 255, 0));
+        kbtnUpdateOp1.setkPressedColor(new java.awt.Color(0, 204, 204));
+        kbtnUpdateOp1.setkSelectedColor(new java.awt.Color(51, 255, 0));
+        kbtnUpdateOp1.setkStartColor(new java.awt.Color(102, 204, 255));
+        kbtnUpdateOp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kbtnExportExcelActionPerformed(evt);
+                kbtnUpdateOp1ActionPerformed(evt);
             }
         });
 
@@ -651,32 +754,32 @@ public class Home extends javax.swing.JFrame {
         kReportPanelLayout.setHorizontalGroup(
             kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kReportPanelLayout.createSequentialGroup()
-                .addGap(484, 484, 484)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kReportPanelLayout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
-                .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kReportPanelLayout.createSequentialGroup()
-                        .addComponent(jRadioPlant_Rp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kbtnExportExcel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1015, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                        .addGap(483, 483, 483)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kReportPanelLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(kReportPanelLayout.createSequentialGroup()
+                                .addComponent(kbtnRefreshReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(kbtnUpdateOp1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         kReportPanelLayout.setVerticalGroup(
             kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kReportPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel16)
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioPlant_Rp)
-                    .addComponent(kbtnExportExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                    .addComponent(kbtnRefreshReport, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kbtnUpdateOp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
 
         jLayeredCenter.add(kReportPanel, "card5");
@@ -695,18 +798,21 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         makePanelVisible(kPlantPanel);
         makeColorVisible(lp1);
+        clearPlantDataOp();
     }//GEN-LAST:event_kGradientPanel1MousePressed
 
     private void kGradientPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MousePressed
         // TODO add your handling code here:
         makePanelVisible(kOperationPanel);
         makeColorVisible(lp2);
+        clearPlantDataOp();
     }//GEN-LAST:event_kGradientPanel2MousePressed
 
     private void kGradientPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel4MousePressed
         // TODO add your handling code here:
         makePanelVisible(kReportPanel);
         makeColorVisible(lp4);
+        refreshReport();
     }//GEN-LAST:event_kGradientPanel4MousePressed
 
     public void viewPlantTable() {
@@ -728,37 +834,22 @@ public class Home extends javax.swing.JFrame {
         viewPlantTable();
     }//GEN-LAST:event_kbtnRefreshTableActionPerformed
 
-    void searchPlant() {
-        String p_season_name = txtSearchPlant.getText();
+    void filterSearchPlant() {
+        String searchtxt = txtfilterSearchPlant.getText();
         try {
-            if (p_season_name.matches("^[0-9]+$")) {
-                Connection con = DbConfig.getConnection();
-
-                String sql1 = "Select * from PLANTS where p_id LIKE '%" + p_season_name + "%'";
-                PreparedStatement ps = con.prepareStatement(sql1);
-                ResultSet rs = ps.executeQuery();
-                jTablePlant.setModel(DbUtils.resultSetToTableModel(rs));
-                rs.close();
-                ps.close();
-            } else {
+            
                 Connection con;
                 con = DbConfig.getConnection();
-                String sql2 = "Select * from PLANTS where P_NAME LIKE '%" + p_season_name + "%'";
-                PreparedStatement ps = con.prepareStatement(sql2);
+                String sql = "Select * from PLANTS where P_NAME LIKE '%" + searchtxt + "%'";
+                PreparedStatement ps = con.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
                 jTablePlant.setModel(DbUtils.resultSetToTableModel(rs));
                 rs.close();
                 ps.close();
-            }
         } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null,"No Match Found! : "+ e);
         }
     }
-
-    private void txtSearchPlantKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchPlantKeyPressed
-        // TODO add your handling code here:
-        searchPlant();
-    }//GEN-LAST:event_txtSearchPlantKeyPressed
 
     private void kbtnAddPlantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnAddPlantActionPerformed
         // TODO add your handling code here:
@@ -939,13 +1030,7 @@ public class Home extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No data to export ", " Error message", JOptionPane.ERROR_MESSAGE);
         }
     }
-    private void kbtnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnExportExcelActionPerformed
-        // TODO add your handling code here:
-        exportToExcel();
-    }//GEN-LAST:event_kbtnExportExcelActionPerformed
-
-    private void jRadioPlant_RpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioPlant_RpActionPerformed
-        // TODO add your handling code here:
+    void refreshReport(){
         try {
             Connection con = DbConfig.getConnection();
             PreparedStatement pst = con.prepareStatement("select * from plants");
@@ -957,8 +1042,8 @@ public class Home extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_jRadioPlant_RpActionPerformed
-
+    }
+    
     void addPlant() {
         try {
             String pid = txtid_op.getText();
@@ -979,7 +1064,7 @@ public class Home extends javax.swing.JFrame {
                     ps.setString(6, pseason);
                     int result = ps.executeUpdate();
                     if (result != 0) {
-                        JOptionPane.showMessageDialog(null, "You are Successfully logged in");
+                        JOptionPane.showMessageDialog(null, "Plant Data Added Successfully");
                     }
                     ps.close();
                     viewPlantTable();
@@ -998,6 +1083,21 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         addPlant();
     }//GEN-LAST:event_kbtnAddOpActionPerformed
+
+    private void kbtnRefreshReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnRefreshReportActionPerformed
+        // TODO add your handling code here:
+        refreshReport();
+    }//GEN-LAST:event_kbtnRefreshReportActionPerformed
+
+    private void kbtnUpdateOp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kbtnUpdateOp1ActionPerformed
+        // TODO add your handling code here:
+        exportToExcel();
+    }//GEN-LAST:event_kbtnUpdateOp1ActionPerformed
+
+    private void txtfilterSearchPlantKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfilterSearchPlantKeyPressed
+        // TODO add your handling code here:
+        filterSearchPlant();
+    }//GEN-LAST:event_txtfilterSearchPlantKeyPressed
 
     /*void makeReceipt(){
         int total_sum = 0;
@@ -1099,8 +1199,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1111,7 +1214,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_exitsign;
     private javax.swing.JLabel jLabel_minin;
     private javax.swing.JLayeredPane jLayeredCenter;
-    private javax.swing.JRadioButton jRadioPlant_Rp;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1130,19 +1232,20 @@ public class Home extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kbtnAddPlant;
     private com.k33ptoo.components.KButton kbtnClearOp;
     private com.k33ptoo.components.KButton kbtnDeletePlant;
-    private com.k33ptoo.components.KButton kbtnExportExcel;
+    private com.k33ptoo.components.KButton kbtnRefreshReport;
     private com.k33ptoo.components.KButton kbtnRefreshTable;
     private com.k33ptoo.components.KButton kbtnUpdateOp;
+    private com.k33ptoo.components.KButton kbtnUpdateOp1;
     private com.k33ptoo.components.KButton kbtnUpdatePlant;
     private javax.swing.JPanel lp1;
     private javax.swing.JPanel lp2;
     private javax.swing.JPanel lp4;
-    private javax.swing.JTextField txtSearchPlant;
-    private javax.swing.JTextField txtamount_op;
+    public javax.swing.JTextField txtamount_op;
     private javax.swing.JTextArea txtdesc_op;
-    private javax.swing.JTextField txtid_op;
-    private javax.swing.JTextField txtname_op;
-    private javax.swing.JTextField txtquantity_op;
-    private javax.swing.JTextField txtseason_op;
+    public javax.swing.JTextField txtfilterSearchPlant;
+    public javax.swing.JTextField txtid_op;
+    public javax.swing.JTextField txtname_op;
+    public javax.swing.JTextField txtquantity_op;
+    public javax.swing.JTextField txtseason_op;
     // End of variables declaration//GEN-END:variables
 }
