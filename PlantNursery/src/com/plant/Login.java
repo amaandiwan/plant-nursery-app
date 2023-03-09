@@ -565,19 +565,19 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_minup;
     private javax.swing.JLayeredPane jLayeredPane1;
     public javax.swing.JPasswordField jPasswordField1;
-    private com.k33ptoo.components.KButton kButton_login;
-    private com.k33ptoo.components.KButton kButton_register;
+    public com.k33ptoo.components.KButton kButton_login;
+    public com.k33ptoo.components.KButton kButton_register;
     private javax.swing.JLabel lbl_signin;
     private javax.swing.JLabel lbl_signin1;
     private javax.swing.JLabel lbl_signup;
     private javax.swing.JLabel lbl_signup1;
     private com.k33ptoo.components.KGradientPanel panel_signin;
     private com.k33ptoo.components.KGradientPanel panel_signup;
-    private javax.swing.JTextField txtemail_up;
-    private javax.swing.JPasswordField txtenpass_up;
-    private javax.swing.JTextField txtname_up;
-    private javax.swing.JPasswordField txtrepass_up;
+    public javax.swing.JTextField txtemail_up;
+    public javax.swing.JPasswordField txtenpass_up;
+    public javax.swing.JTextField txtname_up;
+    public javax.swing.JPasswordField txtrepass_up;
     public javax.swing.JTextField txtuser_in;
-    private javax.swing.JTextField txtuser_up;
+    public javax.swing.JTextField txtuser_up;
     // End of variables declaration//GEN-END:variables
 }
