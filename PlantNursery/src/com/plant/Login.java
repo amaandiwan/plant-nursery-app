@@ -195,8 +195,8 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtuser_in, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(kButton_login, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(153, Short.MAX_VALUE))
@@ -269,6 +269,7 @@ public class Login extends javax.swing.JFrame {
 
         txtname_up.setFont(new java.awt.Font("Berlin Sans FB", 0, 22)); // NOI18N
         txtname_up.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        txtname_up.setName(""); // NOI18N
 
         jLabel_minup.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
         jLabel_minup.setForeground(new java.awt.Color(0, 204, 0));
@@ -339,24 +340,24 @@ public class Login extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtname_up)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtname_up, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtemail_up, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(txtemail_up, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtuser_up, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addComponent(txtuser_up, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(8, 8, 8)
-                .addComponent(txtenpass_up, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(txtenpass_up, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtrepass_up, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(txtrepass_up, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(kButton_register, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98))
         );
@@ -565,19 +566,19 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_minup;
     private javax.swing.JLayeredPane jLayeredPane1;
     public javax.swing.JPasswordField jPasswordField1;
-    private com.k33ptoo.components.KButton kButton_login;
-    private com.k33ptoo.components.KButton kButton_register;
+    public com.k33ptoo.components.KButton kButton_login;
+    public com.k33ptoo.components.KButton kButton_register;
     private javax.swing.JLabel lbl_signin;
     private javax.swing.JLabel lbl_signin1;
     private javax.swing.JLabel lbl_signup;
     private javax.swing.JLabel lbl_signup1;
     private com.k33ptoo.components.KGradientPanel panel_signin;
     private com.k33ptoo.components.KGradientPanel panel_signup;
-    private javax.swing.JTextField txtemail_up;
-    private javax.swing.JPasswordField txtenpass_up;
-    private javax.swing.JTextField txtname_up;
-    private javax.swing.JPasswordField txtrepass_up;
+    public javax.swing.JTextField txtemail_up;
+    public javax.swing.JPasswordField txtenpass_up;
+    public javax.swing.JTextField txtname_up;
+    public javax.swing.JPasswordField txtrepass_up;
     public javax.swing.JTextField txtuser_in;
-    private javax.swing.JTextField txtuser_up;
+    public javax.swing.JTextField txtuser_up;
     // End of variables declaration//GEN-END:variables
 }
