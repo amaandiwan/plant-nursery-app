@@ -163,7 +163,7 @@ public class Home extends javax.swing.JFrame {
         kTopPanelLayout.setHorizontalGroup(
             kTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kTopPanelLayout.createSequentialGroup()
-                .addContainerGap(778, Short.MAX_VALUE)
+                .addContainerGap(588, Short.MAX_VALUE)
                 .addComponent(jLabelTitle)
                 .addGap(421, 421, 421)
                 .addComponent(jLabel_minin)
@@ -355,18 +355,18 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kLeftPanelLayout.createSequentialGroup()
                         .addGroup(kLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(kLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(kLeftPanelLayout.createSequentialGroup()
-                                    .addGap(39, 39, 39)
-                                    .addComponent(jLabel3))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kLeftPanelLayout.createSequentialGroup()
-                                    .addGap(19, 19, 19)
-                                    .addComponent(jLabel13)))
                             .addGroup(kLeftPanelLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kLeftPanelLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addComponent(jLabel15)))
+                                .addComponent(jLabel13)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(kLeftPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kLeftPanelLayout.setVerticalGroup(
             kLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,9 +381,9 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel15)
-                .addGap(88, 88, 88))
+                .addGap(94, 94, 94))
         );
 
         getContentPane().add(kLeftPanel, java.awt.BorderLayout.LINE_START);
@@ -394,8 +394,9 @@ public class Home extends javax.swing.JFrame {
         kPlantPanel.setkStartColor(new java.awt.Color(204, 255, 255));
 
         Search_Label.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        Search_Label.setText("Search by Id or Name :");
+        Search_Label.setText("Search by Name :");
 
+        jTablePlant.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTablePlant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -412,6 +413,7 @@ public class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTablePlant.setRowHeight(35);
         jScrollPane1.setViewportView(jTablePlant);
 
         kbtnAddPlant.setText("Add Plant");
@@ -471,7 +473,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel1.setText("Search Plant Page(Search Plant & Delete Plant)");
+        jLabel1.setText("Search Plant Page");
 
         txtfilterSearchPlant.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         txtfilterSearchPlant.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
@@ -486,14 +488,9 @@ public class Home extends javax.swing.JFrame {
         kPlantPanelLayout.setHorizontalGroup(
             kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kPlantPanelLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(kPlantPanelLayout.createSequentialGroup()
-                            .addGap(211, 211, 211)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kPlantPanelLayout.createSequentialGroup()
+                .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kPlantPanelLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
                         .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(kPlantPanelLayout.createSequentialGroup()
                                 .addComponent(kbtnAddPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -504,29 +501,35 @@ public class Home extends javax.swing.JFrame {
                             .addGroup(kPlantPanelLayout.createSequentialGroup()
                                 .addComponent(Search_Label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtfilterSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                                .addComponent(txtfilterSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(118, 118, 118)
+                                .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(kPlantPanelLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kPlantPanelLayout.createSequentialGroup()
+                        .addGap(453, 453, 453)
+                        .addComponent(jLabel1)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         kPlantPanelLayout.setVerticalGroup(
             kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kPlantPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
+                .addGap(37, 37, 37)
                 .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kbtnAddPlant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(kbtnUpdatePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                    .addComponent(kbtnDeletePlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(kPlantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtfilterSearchPlant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Search_Label)
-                    .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(kbtnRefreshTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(54, 54, 54))
         );
 
         jLayeredCenter.add(kPlantPanel, "card2");
@@ -602,7 +605,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 32)); // NOI18N
-        jLabel4.setText("Plant Operations (Add & Update Plant Data)");
+        jLabel4.setText("Plant Operations");
 
         txtid_op.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         txtid_op.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
@@ -624,46 +627,44 @@ public class Home extends javax.swing.JFrame {
         kOperationPanelLayout.setHorizontalGroup(
             kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kOperationPanelLayout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel10)
+                        .addComponent(jLabel8)))
+                .addGap(18, 18, 18)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addGap(310, 310, 310)
-                        .addComponent(jLabel4))
+                        .addComponent(kbtnAddOp, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)
+                        .addComponent(kbtnUpdateOp, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93)
+                        .addComponent(kbtnClearOp, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kOperationPanelLayout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel8)))
-                        .addGap(18, 18, 18)
                         .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(kOperationPanelLayout.createSequentialGroup()
-                                .addComponent(kbtnAddOp, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(106, 106, 106)
-                                .addComponent(kbtnUpdateOp, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(93, 93, 93)
-                                .addComponent(kbtnClearOp, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(kOperationPanelLayout.createSequentialGroup()
-                                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtamount_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtseason_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(58, 58, 58)
-                                .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(238, Short.MAX_VALUE))
+                            .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtname_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtquantity_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtamount_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtseason_op, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kOperationPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(392, 392, 392)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         kOperationPanelLayout.setVerticalGroup(
             kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kOperationPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(60, 60, 60)
+                .addGap(63, 63, 63)
                 .addGroup(kOperationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtid_op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -716,6 +717,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jTableReport.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jTableReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -732,6 +734,7 @@ public class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableReport.setRowHeight(35);
         jScrollPane4.setViewportView(jTableReport);
 
         kbtnUpdateOp1.setText("Export to Excel");
@@ -754,32 +757,31 @@ public class Home extends javax.swing.JFrame {
         kReportPanelLayout.setHorizontalGroup(
             kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kReportPanelLayout.createSequentialGroup()
-                .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(61, 61, 61)
+                .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
                     .addGroup(kReportPanelLayout.createSequentialGroup()
-                        .addGap(483, 483, 483)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kReportPanelLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(kReportPanelLayout.createSequentialGroup()
-                                .addComponent(kbtnRefreshReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(kbtnUpdateOp1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(191, Short.MAX_VALUE))
+                        .addComponent(kbtnRefreshReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(643, 643, 643)
+                        .addComponent(kbtnUpdateOp1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kReportPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(472, 472, 472))
         );
         kReportPanelLayout.setVerticalGroup(
             kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kReportPanelLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addGroup(kReportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kbtnRefreshReport, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kbtnRefreshReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kbtnUpdateOp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addGap(102, 102, 102))
         );
 
         jLayeredCenter.add(kReportPanel, "card5");
